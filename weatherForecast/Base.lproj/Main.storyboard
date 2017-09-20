@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--WeatherVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherVC" customModule="weatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -84,18 +84,11 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="o88-aB-2un">
                                         <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o88-aB-2un" id="IPD-aj-xEC">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="o88-aB-2un" id="IPD-aj-xEC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uG-zf-Skd">
-                                                    <rect key="frame" x="16" y="18" width="50" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="OFh-BF-hHr"/>
-                                                        <constraint firstAttribute="width" constant="50" id="uck-D3-FWX"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZM-vc-S2k">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZM-vc-S2k">
                                                     <rect key="frame" x="74" y="18" width="285" height="48.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XiS-cJ-CTH">
@@ -134,14 +127,23 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uG-zf-Skd">
+                                                    <rect key="frame" x="16" y="18" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="OFh-BF-hHr"/>
+                                                        <constraint firstAttribute="width" constant="50" id="uck-D3-FWX"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.93980577256944442" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NZM-vc-S2k" secondAttribute="trailing" constant="8" id="0Uy-lj-oAr"/>
                                                 <constraint firstItem="NZM-vc-S2k" firstAttribute="leading" secondItem="6uG-zf-Skd" secondAttribute="trailing" constant="8" id="BcR-zn-zTT"/>
                                                 <constraint firstItem="6uG-zf-Skd" firstAttribute="leading" secondItem="IPD-aj-xEC" secondAttribute="leadingMargin" constant="8" id="FJZ-Up-2f1"/>
+                                                <constraint firstItem="NZM-vc-S2k" firstAttribute="centerY" secondItem="6uG-zf-Skd" secondAttribute="centerY" id="Ifm-Rz-Hx7"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="6uG-zf-Skd" secondAttribute="bottom" constant="10" id="SHn-me-LU6"/>
                                                 <constraint firstItem="NZM-vc-S2k" firstAttribute="leading" secondItem="6uG-zf-Skd" secondAttribute="trailing" constant="8" id="SzF-9d-GQD"/>
+                                                <constraint firstItem="NZM-vc-S2k" firstAttribute="centerY" secondItem="6uG-zf-Skd" secondAttribute="centerY" id="TZ5-C4-LUy"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="NZM-vc-S2k" secondAttribute="bottom" constant="10" id="UAX-7x-L2b"/>
                                                 <constraint firstItem="NZM-vc-S2k" firstAttribute="top" secondItem="IPD-aj-xEC" secondAttribute="topMargin" constant="10" id="cFV-lH-yAz"/>
                                                 <constraint firstItem="6uG-zf-Skd" firstAttribute="top" secondItem="IPD-aj-xEC" secondAttribute="topMargin" constant="10" id="nbs-Vl-WmQ"/>
