@@ -10,13 +10,16 @@ import UIKit
 import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var templabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var currentWeatherLabel: UIImageView!
     @IBOutlet var currentWeatherTypeLabel: UILabel!
     @IBOutlet var tableView: UITableView!
+    
+    
+    var currentweather: CurrentWeather!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,13 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        print(CURRENT_WEATHER_URL)
+        currentweather = CurrentWeather()
+        currentweather.downloadWeatherdetails{
+            //setup UI to load download data
+            
+            self.updateMainUI()
+            
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,9 +49,15 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
         return cell
     }
-
     
-
-
+    
+    func updateMainUI() {
+     dateLabel.text = currentweather.date
+      templabel.text = "\(currentweather.currenttemp)"
+        currentWeatherTypeLabel.text = currentweather.weatherType
+        locationLabel.text = currentweather.cityName
+        currentWeatherLabel.image = UIImage (named: currentweather.weatherType)
+    }
+    
 }
 
