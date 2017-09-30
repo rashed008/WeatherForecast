@@ -38,14 +38,14 @@ class  CurrentWeather {
     
     var date: String {
         if _date == nil {
-        _date = ""
+            _date = ""
         }
         
-        let dateFormatter = dateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
-        
+        dateFormatter.timeStyle = .none
+        let currentDate = dateFormatter.string(from: Date())
+        self._date = "Today\(currentDate)"
+        return _date
     }
-    
-    
-    
 }
