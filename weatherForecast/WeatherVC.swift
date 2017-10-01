@@ -36,7 +36,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         currentweather.downloadWeatherdetails{
             //setup UI to load download data
             
-            forecast.downloadForecastData{
+            self.downloadForecastData{
                 self.updateMainUI()
             }
     
