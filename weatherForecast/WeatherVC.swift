@@ -31,17 +31,15 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         currentweather = CurrentWeather()
-//        forecast = Forecast()
         
         currentweather.downloadWeatherdetails{
             //setup UI to load download data
-            
             self.downloadForecastData{
                 self.updateMainUI()
+                }
+        
             }
-    
         }
-    }
     
     func downloadForecastData(completed: @escaping DownloadComplete){
      //Download weather forecast data for tableview
@@ -49,12 +47,15 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Alamofire.request(forecastURL).responseJSON {response in
           let result = response.result
             
+            //print(response)
+            
             if let dict = result.value as? Dictionary<String, AnyObject>{
             
                 if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
                     for obj in list {
                         let forecast = Forecast(weatherDict: obj)
                         self.forecasts.append(forecast)
+                        print(obj)
                     }
                 }
             }
