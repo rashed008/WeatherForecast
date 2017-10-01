@@ -76,15 +76,14 @@ class  CurrentWeather {
                         let celsiusTemp = currentTemperature - 273.15
                         self._currenttemp = Double(String(format: "%.0f", celsiusTemp))
                         print(self._currenttemp)
+                            }
+                        }
+                        
+                        completed()
+                        
+                        
                     }
                 }
-               
-                completed()
-
                 
             }
-        }
-        
     }
-    
-}
